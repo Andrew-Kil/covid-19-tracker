@@ -5,9 +5,8 @@ import cx from "classnames";
 
 import styles from "./Cards.module.css";
 
-const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+const Cards = ({ data: { confirmed, recovered, deaths } }) => {
   if (!confirmed) return "Loading...";
-
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
@@ -19,7 +18,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           className={cx(styles.card, styles.infected)}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Infected
+              Confirmed
             </Typography>
             <Typography variant="h5">
               <CountUp
@@ -28,12 +27,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 duration={2.5}
                 separator=","></CountUp>
             </Typography>
-            <Typography color="textSecondary">
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
-            <Typography variant="body2">
-              Number of active cases of COVID-19
-            </Typography>
+            <Typography variant="body2">Confirmed cases of COVID-19</Typography>
           </CardContent>
         </Grid>
         <Grid
@@ -53,10 +47,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 duration={2.5}
                 separator=","></CountUp>
             </Typography>
-            <Typography color="textSecondary">REAL DATE</Typography>
-            <Typography variant="body2">
-              Number of recoveries from COVID-19
-            </Typography>
+            <Typography variant="body2">Recoveries from COVID-19</Typography>
           </CardContent>
         </Grid>
         <Grid
@@ -76,10 +67,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 duration={2.5}
                 separator=","></CountUp>
             </Typography>
-            <Typography color="textSecondary">REAL DATE</Typography>
-            <Typography variant="body2">
-              Number of deaths caused by COVID-19
-            </Typography>
+            <Typography variant="body2">Deaths caused by COVID-19</Typography>
           </CardContent>
         </Grid>
       </Grid>
